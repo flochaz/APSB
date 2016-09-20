@@ -1,0 +1,49 @@
+/*
+Theme Name: psb
+Description: psb
+Author: psb
+Template: pinboard
+*/
+
+@import url("../pinboard/style.css");
+
+
+
+
+#header {
+	background-color: #F1F1F2;
+	border-top: 0;
+	background-image: url(http://localhost:8888/b2com/wp-content/uploads/2016/01/baniere.jpg);
+	background-repeat: no-repeat;
+}
+
+#access a:hover {
+    color: #FFF;
+    background-color: #33a949;
+}
+
+#access{
+	padding-left: 325px;
+	margin-top:40px;
+}
+
+#header {
+    height: 190px;
+}
+
+#site-title a{
+	padding:90px 220px;
+}
+
+@media screen and (max-width: 760px) {
+
+#header {
+	background-color: #060000;
+	border-top: 0;
+	background-image: none;
+	padding-top:30px;
+}
+
+
+
+}

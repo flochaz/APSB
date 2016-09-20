@@ -5,20 +5,33 @@ services:
     links:
       - db
     ports:
+      - 80:80
       - 8080:80
       - 443:443
     volumes:
       - ./data:/data
+      - ./wp-content/themes/psb:/app/wp-content/themes/psb
+      - ./wp-content/uploads:/app/wp-content/uploads
     environment:
+      THEMES: pinboard
       DB_NAME: wordpress
       DB_PASS: root
-      PLUGINS: akismet
+      PLUGINS: >-
+        akismet,
+        contact-form-7,
+        login-form-recaptcha,
+        ml-slider,
+        paypal-donations,
+        really-simple-captcha,
+        tac,
+        tinymce-advanced,
+        feed-them-social
   db:
     image: mysql:5.7 # or mariadb
     ports:
       - 3306:3306
     volumes:
-      - data:/var/lib/mysql
+      - ./data:/data # Required if importing an existing database
     environment:
       MYSQL_ROOT_PASSWORD: root
 volumes:
