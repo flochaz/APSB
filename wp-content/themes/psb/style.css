@@ -7,9 +7,6 @@ Template: pinboard
 
 @import url("../pinboard/style.css");
 
-
-
-
 #header {
 	background-color: #F1F1F2;
 	border-top: 0;
@@ -22,28 +19,10 @@ Template: pinboard
     background-color: #33a949;
 }
 
-#access{
-	padding-left: 325px;
-	margin-top:40px;
+#header input#s {
+	display:none;
 }
 
-#header {
-    height: 190px;
-}
-
-#site-title a{
-	padding:90px 220px;
-}
-
-@media screen and (max-width: 760px) {
-
-#header {
-	background-color: #060000;
-	border-top: 0;
-	background-image: none;
-	padding-top:30px;
-}
-
-
+/*@media screen and (max-width: 760px) {}*/
 
 }

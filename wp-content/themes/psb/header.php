@@ -20,11 +20,7 @@
 						<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" width="<?php echo ( pinboard_get_option( 'retina_header' ) ? absint( get_custom_header()->width / 2 ) : get_custom_header()->width ); ?>" height="<?php echo ( pinboard_get_option( 'retina_header' ) ? absint( get_custom_header()->height / 2 ) : get_custom_header()->height ); ?>" />
 					</a>
 				<?php endif; ?>
-				<a class="home" href="<?php echo home_url( '/' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 			</<?php pinboard_title_tag( 'site' ); ?>>
-			<?php if( ! is_active_sidebar( 1 ) ) : ?>
-				<<?php pinboard_title_tag( 'desc' ); ?> id="site-description"><?php bloginfo( 'description' ); ?></<?php pinboard_title_tag( 'desc' ); ?>>
-			<?php endif; ?>
 			<?php get_sidebar( 'header' ); ?>
 			<div class="clear"></div>
 			<nav id="access">
