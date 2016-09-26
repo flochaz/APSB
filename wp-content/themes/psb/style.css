@@ -7,11 +7,20 @@ Template: pinboard
 
 @import url("../pinboard/style.css");
 
+textarea{
+  width: 80%
+}
+
 #header {
 	background-color: #F1F1F2;
 	border-top: 0;
 	background-image: url(http://localhost:8888/b2com/wp-content/uploads/2016/01/baniere.jpg);
 	background-repeat: no-repeat;
+}
+
+#site-title img {
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 #access a:hover {
@@ -23,6 +32,105 @@ Template: pinboard
 	display:none;
 }
 
-/*@media screen and (max-width: 760px) {}*/
+#metaslider {
+  top: 20px;
+}
 
+#sidebar-footer-wide {
+    background: #a7a9ab;
+}
+
+.widget-title {
+  margin-bottom: 20px;
+}
+
+.tagcloud a {
+  color: #CCC;
+  background: #444;
+  }
+
+.google-maps {
+        position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+    }
+    .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+@media screen and (max-width: 760px) {
+	#social-media-icons {
+    	margin-top: 70px;
+    	margin-right: 30px;
+	}
+
+	#header #searchform {
+    	margin-top: -60px;
+    	visibility: hidden;
+  	}
+
+  	#access .nav-show, #access a.nav-show:hover{
+    	top: 90px;
+    	right: 2%;
+  	}
+
+  	#access:target .menu {
+    	margin-top: 126px;
+    	background: #111;
+  	}
+
+  	.flex-direction-nav li, .flex-pauseplay a {
+    	visibility: hidden;
+  	}
+
+	 #slider {
+	    border-bottom: 0px solid #fff;
+	 }
+  	
+  	form p[style] {
+   		width: 90% !important
+	}
+
+	.wpcf7-form-control {
+    	width: 95% !important;
+  	}
+}
+
+@media only screen and (min-width: 768px) {
+   #header #searchform {
+    margin-top: 0px;
+   }
+
+   #social-media-icons {
+     float: right;
+     margin-top: 0px;
+
+   }
+  
+  #access {
+    padding: 0;
+  }
+
+  .twocol .entry-container {
+    height: 170px;
+  }
+
+  #access ul {
+    display: table;
+    margin: 0 auto;
+    float: none;
+  }
+
+  #slider {
+    margin-bottom: 50px;
+  }
+
+  #container {
+    margin-top: 40px;
+  }
 }
