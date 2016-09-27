@@ -1,0 +1,28 @@
+version: '2'
+services:
+  wordpress:
+    image: minusetcortex/apsb:devel
+    ports:
+      - 80:80
+      - 8080:80
+      - 443:443
+    volumes:
+      - ./data:/data
+      - ./wp-content/uploads:/app/wp-content/uploads
+    environment:
+      ADMIN_EMAIL: florianchazal@gmail.com
+      THEMES: pinboard
+      DB_HOST: ${APSB_DB_HOST}
+      DB_NAME: ${APSB_DB_NAME}
+      DB_USER: ${APSB_DB_USER}
+      DB_PASS: ${APSB_DB_PASSWORD}
+      PLUGINS: >-
+        akismet,
+        contact-form-7,
+        login-form-recaptcha,
+        ml-slider,
+        paypal-donations,
+        really-simple-captcha,
+        tac,
+        tinymce-advanced,
+        feed-them-social

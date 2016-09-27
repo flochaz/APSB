@@ -1,22 +1,27 @@
 FROM tutum/apache-php
-MAINTAINER Karel Ledru-Mathe <karel@ledrumathe.com>
+MAINTAINER Florian CHAZAL <florianchazal@gmail.com>
 
-# Install mysql-client
+# Install mysql-client and git
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         mysql-client \
         unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Install wp-cli, configure Apache, & add scripts
+# Install wp-cli, configure Apache
 WORKDIR /app
 RUN curl \
         -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-        -o /run.sh https://raw.githubusercontent.com/visiblevc/wordpress-starter/master/run.sh \
-    && chmod +x /usr/local/bin/wp /run.sh \
+    && chmod +x /usr/local/bin/wp \
     && sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf \
     && a2enmod rewrite \
     && service apache2 restart
+
+# Get theme updated code 
+COPY wp-content wp-content
+
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
 
 # Run the server
 EXPOSE 80 443
