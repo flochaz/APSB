@@ -1,7 +1,9 @@
 #!/bin/bash
 
 ADMIN_EMAIL=${ADMIN_EMAIL:-"admin@${DB_NAME}.com"}
+DB_HOST=${DB_HOST:-'db'}
 DB_NAME=${DB_NAME:-'wordpress'}
+DB_USER=${DB_USER:-'root'}
 DB_PASS=${DB_PASS:-'root'}
 DB_PREFIX=${DB_PREFIX:-'wp_'}
 THEMES=${THEMES:-'twentysixteen'}
@@ -26,11 +28,11 @@ apache_modules:
   - mod_rewrite
 
 core config:
-  dbuser: root
+  dbuser: $DB_USER
   dbpass: $DB_PASS
   dbname: $DB_NAME
   dbprefix: $DB_PREFIX
-  dbhost: db:3306
+  dbhost: $DB_HOST:3306
   extra-php: |
     define('WP_DEBUG', ${WP_DEBUG,,});
     define('WP_DEBUG_LOG', ${WP_DEBUG_LOG,,});
@@ -39,7 +41,7 @@ core config:
 core install:
   url: $([ "$AFTER_URL" ] && echo "$AFTER_URL" || echo localhost:8080)
   title: $DB_NAME
-  admin_user: root
+  admin_user: $DB_USER
   admin_password: $DB_PASS
   admin_email: $ADMIN_EMAIL
   skip-email: true
@@ -60,7 +62,7 @@ fi
 # Wait for MySQL
 # --------------
 printf "=> Waiting for MySQL to initialize... \n"
-while ! mysqladmin ping --host=db --password=$DB_PASS --silent; do
+while ! mysqladmin ping --host=$DB_HOST --user=$DB_USER --password=$DB_PASS --silent; do
   sleep 1
 done
 
@@ -75,7 +77,7 @@ printf "\t%s\n" \
 # -------------
 printf "=> Generating wp.config.php file... "
 rm -f /app/wp-config.php
-sudo -u www-data wp core config >/dev/null 2>&1 || \
+sudo -u www-data wp core config  || \
   ERROR $LINENO "Could not generate wp-config.php file"
 printf "Done!\n"
 

@@ -4,7 +4,6 @@ services:
     image: minusetcortex/apsb:devel
     ports:
       - 80:80
-      - 8080:80
       - 443:443
     volumes:
       - ./data:/data
@@ -16,6 +15,7 @@ services:
       DB_NAME: ${APSB_DB_NAME}
       DB_USER: ${APSB_DB_USER}
       DB_PASS: ${APSB_DB_PASSWORD}
+      SEARCH_REPLACE: assoc-psb.org,${APSB_HOSTNAME}
       PLUGINS: >-
         akismet,
         contact-form-7,
