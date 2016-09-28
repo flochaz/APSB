@@ -20,7 +20,7 @@ services:
         akismet,
         contact-form-7,
         login-form-recaptcha,
-        ml-slider,
+        ml-slider,paypal-donations
         paypal-donations,
         really-simple-captcha,
         tac,

@@ -9,8 +9,15 @@ dependencies:
 
 test:
   override:
-    - docker-compose -f docker-compose-rds.yml up; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:9200
+    - docker run -d -i -t -e THEMES='pinboard'\
+     -e DB_HOST=$APSB_DB_HOST \
+     -e DB_NAME=$APSB_DB_NAME \
+     -e DB_USER=$APSB_DB_USER \
+     -e DB_PASS=$APSB_DB_PASSWORD \
+     -e SEARCH_REPLACE="assoc-psb.org,$APSB_HOSTNAME" \
+     -e PLUGINS="akismet,contact-form-7,login-form-recaptcha,ml-slider,paypal-donations,really-simple-captcha,tac,tinymce-advanced,feed-them-social" \
+     -p 80:80 minusetcortex/apsb:devel; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:80
 
 
 deployment:

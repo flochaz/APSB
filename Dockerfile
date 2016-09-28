@@ -20,6 +20,9 @@ RUN curl \
 # Get theme updated code 
 COPY wp-content wp-content
 
+# Get backed up db
+COPY data /data
+
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
