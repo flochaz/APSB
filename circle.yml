@@ -9,7 +9,7 @@ dependencies:
 
 test:
   override:
-    - docker run -t -e THEMES='pinboard' -e DB_HOST=$APSB_DB_HOST -e DB_NAME=$APSB_DB_NAME -e DB_USER=$APSB_DB_USER -e DB_PASS=$APSB_DB_PASSWORD -e SEARCH_REPLACE="assoc-psb.org,localhost:9200" -e PLUGINS="akismet,contact-form-7,login-form-recaptcha,ml-slider,paypal-donations,really-simple-captcha,tac,tinymce-advanced,feed-them-social" -p 9200:80 minusetcortex/apsb:devel; sleep 10
+    - docker run -d  -t -e THEMES='pinboard' -e DB_HOST=$APSB_DB_HOST -e DB_NAME=$APSB_DB_NAME -e DB_USER=$APSB_DB_USER -e DB_PASS=$APSB_DB_PASSWORD -e SEARCH_REPLACE="assoc-psb.org,localhost:9200" -e PLUGINS="akismet,contact-form-7,login-form-recaptcha,ml-slider,paypal-donations,really-simple-captcha,tac,tinymce-advanced,feed-them-social" -p 9200:80 minusetcortex/apsb:devel; sleep 180
     - curl --retry 10 --retry-delay 5 -v http://localhost:9200
 
 
