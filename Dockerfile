@@ -6,6 +6,7 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         mysql-client \
         unzip \
+        lftp \
     && rm -rf /var/lib/apt/lists/*
 
 # Install wp-cli, configure Apache
@@ -24,7 +25,10 @@ COPY wp-content wp-content
 COPY data /data
 
 COPY run.sh /run.sh
-RUN chmod +x /run.sh
+COPY deploy.sh /deploy.sh
+
+RUN chmod +x /run.sh /deploy.sh
+
 
 # Run the server
 EXPOSE 80 443

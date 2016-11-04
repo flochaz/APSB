@@ -10,18 +10,17 @@ services:
     environment:
       THEMES: pinboard
       ADMIN_EMAIL: florianchazal@gmail.com
-      DB_NAME: wordpress
-      DB_PASS: root
-      SEARCH_REPLACE: assoc-psb.org,dev-apsb.org
+      SEARCH_REPLACE: assoc-psb.org,${APSB_HOSTNAME}
+      PROD_FTP_USER: ${EX2_FTP_USER}
+      PROD_FTP_PASSWORD: ${EX2_FTP_PASSWORD}
+      PROD_FTP_HOST: ${EX2_FTP_HOST}
       PLUGINS: >-
         akismet,
         contact-form-7,
         login-form-recaptcha,
         ml-slider,
-        paypal-donations,
         really-simple-captcha,
         tac,
-        tinymce-advanced,
         feed-them-social
   db:
     image: mysql:5.7 # or mariadb

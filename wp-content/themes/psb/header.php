@@ -3,6 +3,7 @@
 <head>
 <meta charset="<?php bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Association solidaire pour les enfants du monde" />
 <?php if( ! function_exists( '_wp_render_title_tag' ) ) : ?>
 <title><?php wp_title( '&#124;', true, 'right' ); ?></title>
 <?php endif; ?>

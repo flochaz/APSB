@@ -393,7 +393,7 @@ CREATE TABLE `wp_users` (
 
 LOCK TABLES `wp_users` WRITE;
 /*!40000 ALTER TABLE `wp_users` DISABLE KEYS */;
-INSERT INTO `wp_users` VALUES (2,'florianchazal@gmail.com','$P$Bxpu/NWw6Il4QdUbRffxkt3mxMT3a9.','florianchazalgmail-com','florianchazal@gmail.com','','2016-06-10 14:30:12','1465569015:$P$BIBLef9uzYXF/itu07hYUqhCDC9Y9z0',0,'florian chazal');
+INSERT INTO `wp_users` VALUES (2,'florianchazal@gmail.com','$P$BlwL30SAdcAoeVPc16Nwx2htFd/BuN.','florianchazalgmail-com','florianchazal@gmail.com','','2016-06-10 14:30:12','1465569015:$P$BIBLef9uzYXF/itu07hYUqhCDC9Y9z0',0,'florian chazal');
 /*!40000 ALTER TABLE `wp_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

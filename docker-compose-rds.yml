@@ -5,9 +5,6 @@ services:
     ports:
       - 80:80
       - 443:443
-    volumes:
-      - ./data:/data
-      - ./wp-content/uploads:/app/wp-content/uploads
     environment:
       ADMIN_EMAIL: florianchazal@gmail.com
       THEMES: pinboard
@@ -15,14 +12,14 @@ services:
       DB_NAME: ${APSB_DB_NAME}
       DB_USER: ${APSB_DB_USER}
       DB_PASS: ${APSB_DB_PASSWORD}
-      SEARCH_REPLACE: assoc-psb.org,${APSB_HOSTNAME}
+      PROD_FTP_HOST: ${EX2_FTP_HOST}
+      PROD_FTP_USER: ${EX2_FTP_USER}
+      PROD_FTP_PASSWORD: ${EX2_FTP_PASSWORD}
       PLUGINS: >-
         akismet,
         contact-form-7,
         login-form-recaptcha,
-        ml-slider,paypal-donations
-        paypal-donations,
+        ml-slider,
         really-simple-captcha,
         tac,
-        tinymce-advanced,
         feed-them-social
