@@ -17,6 +17,10 @@ textarea{
 	background-repeat: no-repeat;
 }
 
+.dribble {
+    background-image: url(images/cochon-don_32x64.png);
+}
+
 #site-title img {
   margin-bottom: 0;
 }
